@@ -1,0 +1,13 @@
+.dashboardWrapper{
+    padding: 20px;
+}
+
+.topBar{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.projectBox{
+    display: grid;
+    grid-template-columns: 80% 10% 10%;
+}
