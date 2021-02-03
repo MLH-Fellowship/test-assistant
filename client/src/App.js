@@ -5,7 +5,11 @@ import '../node_modules/eos-icons/dist/css/eos-icons.css'
 import './assets/scss/index.scss'
 
 import Dashboard from "./components/Dashboard";
+
 import Login from './pages/Login'
+import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 
 import Context from './modules/Context'
 import ContextReducer from './modules/ContextReducer'
@@ -51,6 +55,9 @@ const App = () => {
       <Router>
         <Dashboard path='/' />
         <Login path='/login' />
+        <Register path='/register' />
+        <ForgotPassword path='/forgotPassword' />
+        <ResetPassword path='/resetPassword' />
       </Router>
     </Context.Provider>
   );
