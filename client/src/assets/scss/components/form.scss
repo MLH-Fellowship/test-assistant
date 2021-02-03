@@ -1,0 +1,71 @@
+.form-default {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element {
+  margin: 16px 0px;
+}
+
+.input-default {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid black;
+  font-family: $font-family;
+  margin: 8px 0px;
+  outline: 0;
+  width: 100%;
+}
+
+.text-area-default {
+  resize: none;
+}
+
+.select-default {
+  background-color: $eos-white;
+  border: 1px solid $primary;
+  border-radius: 4px;
+  margin: 4px 0px;
+  outline: 0;
+  padding: 8px 8px;
+  width: 100%;
+}
+
+.select-default:active,
+.select-default:hover {
+  outline: 0;
+}
+
+.input-profile {
+  background: transparent;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-family: $font-family;
+  margin: 8px 0px 8px 0px;
+  outline: 0;
+  padding: 8px 8px 8px 8px;
+  width: 50%;
+}
+
+input[type='checkbox'] {
+  margin-right: 8px;
+}
+
+input {
+  padding: 10px 5px;
+}
+
+.input-group {
+  display: flex;
+  position: relative;
+
+  &-append {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

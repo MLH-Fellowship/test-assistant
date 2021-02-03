@@ -1,0 +1,19 @@
+.link {
+  outline: 0;
+  text-decoration: none;
+
+  &-default,
+  &-default:visited,
+  &-default:active {
+    color: $hyper-link-color;
+    font-weight: bold;
+  }
+
+  &-default:hover {
+    color: $hyper-link-hover-color;
+  }
+
+  &-highlighted {
+    background-color: $light-blue;
+  }
+}

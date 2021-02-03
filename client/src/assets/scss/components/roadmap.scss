@@ -1,0 +1,42 @@
+.roadmap {
+  @extend .flex;
+  @extend .flex-row;
+  @extend .flex-space-between;
+  margin-bottom: 32px;
+  position: relative;
+
+  &::before {
+    border-top: 1px solid gray;
+    content: '';
+    position: absolute;
+    top: 22px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .btn {
+    background: $eos-cerulean-50;
+    z-index: 10;
+  }
+
+  .btn-tabs {
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+
+    .eos-icons {
+      margin-right: 12px;
+      vertical-align: sub;
+    }
+
+    &-selected,
+    &:hover,
+    &:focus {
+      border-bottom-color: $status-tabs-bg;
+      border-radius: 0px;
+    }
+
+    &:focus {
+      outline: transparent 0px;
+    }
+  }
+}

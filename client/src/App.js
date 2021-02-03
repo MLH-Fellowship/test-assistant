@@ -1,10 +1,65 @@
+import React, { useEffect, useReducer } from 'react'
+import { Router } from '@reach/router'
+
+import '../node_modules/eos-icons/dist/css/eos-icons.css'
+import './assets/scss/index.scss'
+
 import Dashboard from "./components/Dashboard";
 
-function App() {
+import Login from './pages/Login'
+import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
+
+import Context from './modules/Context'
+import ContextReducer from './modules/ContextReducer'
+
+const initialState = {
+  auth: false,
+  errorCode: null
+}
+
+const App = () => {
+  const [state, dispatch] = useReducer(ContextReducer, initialState)
+
+  const userId = localStorage.getItem('id')
+
+  useEffect(() => {
+    window.addEventListener('storage', (e) => {
+      if (localStorage.getItem('id')) {
+        dispatch({
+          type: 'AUTHENTICATE'
+        })
+      } else {
+        dispatch({
+          type: 'DEAUTHENTICATE'
+        })
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    if (userId) {
+      dispatch({
+        type: 'AUTHENTICATE'
+      })
+    } else {
+      dispatch({
+        type: 'DEAUTHENTICATE'
+      })
+    }
+  }, [userId])
+
   return (
-    <div className="App">
-      <Dashboard/>
-    </div>
+    <Context.Provider value={{ state, dispatch }}>
+      <Router>
+        <Dashboard path='/' />
+        <Login path='/login' />
+        <Register path='/register' />
+        <ForgotPassword path='/forgotPassword' />
+        <ResetPassword path='/resetPassword' />
+      </Router>
+    </Context.Provider>
   );
 }
 

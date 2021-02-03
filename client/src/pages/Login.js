@@ -1,0 +1,115 @@
+import React, { useState, useContext } from 'react'
+import { useForm } from 'react-hook-form'
+
+import { Link, navigate } from '@reach/router'
+import useAuth from '../hooks/useAuth'
+import { Helmet } from 'react-helmet'
+
+import Button from '../components/Button'
+import FormError from '../components/FormError'
+import Context from '../modules/Context'
+import AuthWrapper, {
+  AuthLeftContainer,
+  AuthRightContainer
+} from '../components/AuthWrapper'
+
+export const Login = (props) => {
+  const { message } = props
+
+  const { login } = useAuth()
+
+  const { register, handleSubmit, errors } = useForm()
+
+  const [showPassword, toggleShowPassword] = useState(false)
+
+  const { state, dispatch } = useContext(Context)
+
+  const onSubmit = async (data) => {
+    try {
+      const payload = await login({
+        identifier: data.identifier,
+        password: data.password
+      })
+      localStorage.setItem('id', payload.user.id)
+      localStorage.setItem('username', payload.user.username)
+      localStorage.setItem('email', payload.user.email)
+      dispatch({
+        type: 'AUTHENTICATE'
+      })
+      navigate('/')
+    } catch (e) {}
+  }
+
+  return (
+    <>
+      <Helmet>
+        <title>Login | Test Assistant</title>
+        <meta name='robots' content='noindex' />
+      </Helmet>
+      <AuthWrapper>
+        <AuthLeftContainer />
+        <AuthRightContainer>
+          <div>
+            <form className='form-default' onSubmit={handleSubmit(onSubmit)}>
+              <div className='header'>Sign in</div>
+              {message && <FormError message={message} />}
+              {state.errorCode && <FormError status={state.errorCode} />}
+              <div className='form-element'>
+                <label htmlFor='identifer'>
+                Enter your username
+                </label>
+                <input
+                  className='input-default'
+                  type='text'
+                  name='identifier'
+                  ref={register({ required: true })}
+                />
+                {errors.identifier && (
+                  <FormError type={errors.identifier.type} />
+                )}
+              </div>
+
+              <div className='form-element'>
+                <label htmlFor='password'>
+                Enter your password
+                </label>
+                <div className='input-group'>
+                  <input
+                    className='input-default'
+                    type={showPassword ? 'text' : 'password'}
+                    name='password'
+                    ref={register({ required: true })}
+                  ></input>
+
+                  <div
+                    className='input-group-append'
+                    onClick={() => toggleShowPassword(!showPassword)}
+                  >
+                    <i className='eos-icons eos-18'>
+                      {showPassword ? 'visibility_off ' : 'visibility'}
+                    </i>
+                  </div>
+                </div>
+                {errors.password && <FormError type={errors.password.type} />}
+              </div>
+
+              <Button type='submit' className='btn btn-default'>
+                Login
+              </Button>
+            </form>
+            <div className='flex flex-row flex-space-between margin-top-l'>
+              <Link className='link link-default' to='/forgotPassword'>
+              Forgot password?
+              </Link>
+              <Link className='link link-default' to='/register'>
+              Create an account
+              </Link>
+            </div>
+          </div>
+        </AuthRightContainer>
+      </AuthWrapper>
+    </>
+  )
+}
+
+export default Login

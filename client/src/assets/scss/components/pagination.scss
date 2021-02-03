@@ -1,0 +1,30 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn-pagination {
+  background: $eos-white;
+  border-radius: 10px;
+  color: $eos-black;
+  margin: 8px;
+  padding: 8px 16px;
+  text-decoration: none;
+
+  .eos-icons {
+    padding: 0 8px;
+  }
+
+  .number {
+    color: $eos-black;
+    margin: 0 4px;
+    padding: 0 8px;
+    text-decoration: none;
+  }
+
+  .selected {
+    color: $primary;
+    font-weight: bold;
+  }
+}
