@@ -1268,6 +1268,12 @@
                 },
                 "public": {
                   "type": "boolean"
+                },
+                "reports": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }

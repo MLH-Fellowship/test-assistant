@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/projects": {
+    "/reports": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Project"
+                    "$ref": "#/components/schemas/Report"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Report"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProject"
+                "$ref": "#/components/schemas/NewReport"
               }
             }
           }
         }
       }
     },
-    "/projects/count": {
+    "/reports/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "parameters": []
       }
     },
-    "/projects/{id}": {
+    "/reports/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Report"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Report"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProject"
+                "$ref": "#/components/schemas/NewReport"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Report"
         ],
         "parameters": [
           {
@@ -514,57 +514,37 @@
   },
   "components": {
     "schemas": {
-      "Project": {
+      "Report": {
         "required": [
-          "id",
-          "Title",
-          "public"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Title": {
-            "type": "string"
-          },
-          "Description": {
-            "type": "string"
-          },
-          "user": {
+          "project": {
             "required": [
               "id",
-              "username",
-              "email"
+              "Title",
+              "public"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "username": {
+              "Title": {
                 "type": "string"
               },
-              "email": {
+              "Description": {
                 "type": "string"
               },
-              "provider": {
+              "user": {
                 "type": "string"
               },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmed": {
+              "public": {
                 "type": "boolean"
               },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "projects": {
+              "reports": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -572,53 +552,18 @@
               }
             }
           },
-          "public": {
-            "type": "boolean"
-          },
-          "reports": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "project": {
-                  "type": "string"
-                },
-                "testReport": {
-                  "type": "string"
-                }
-              }
-            }
+          "testReport": {
+            "type": "string"
           }
         }
       },
-      "NewProject": {
-        "required": [
-          "Title",
-          "public"
-        ],
+      "NewReport": {
         "properties": {
-          "Title": {
+          "project": {
             "type": "string"
           },
-          "Description": {
+          "testReport": {
             "type": "string"
-          },
-          "user": {
-            "type": "string"
-          },
-          "public": {
-            "type": "boolean"
-          },
-          "reports": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         }
       }
@@ -626,7 +571,7 @@
   },
   "tags": [
     {
-      "name": "Project"
+      "name": "Report"
     }
   ]
 }

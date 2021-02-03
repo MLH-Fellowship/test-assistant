@@ -25,6 +25,10 @@
     "public": {
       "type": "boolean",
       "required": true
+    },
+    "reports": {
+      "via": "project",
+      "collection": "report"
     }
   }
 }
