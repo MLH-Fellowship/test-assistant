@@ -1,0 +1,25 @@
+{
+  "authentication": {
+    "title-sign-in": "Registrarse",
+    "title-sign-up": "Regístrate",
+    "login-label": "Iniciar sesión",
+    "register-label": "Registrarse",
+    "submit-label": "Enviar",
+    "header-left": "Historias de usuarios",
+    "user-stories-description": "Lorem Ipsum es simplemente un texto ficticio de la industria de impresión y composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el siglo XVI.",
+    "footer-left": "Este sitio guarda cierta información en cookies pero solo cuando es estrictamente necesario",
+    "username-label": "Ingrese su nombre de usuario",
+    "email-label": "Introduce tu correo electrónico",
+    "password-label": "Ingresa tu contraseña",
+    "confirm-password-label": "Confirmar contraseña",
+    "forgot-password": "¿Se te olvidó tu contraseña?",
+    "reset-password": "Configura tu nueva contraseña",
+    "old-password": "Ingrese su contraseña anterior",
+    "new-password": "Nueva contraseña",
+    "confirm-password": "Confirmar contraseña",
+    "create-account": "Crea una cuenta",
+    "footer-right": "2020 EOS",
+    "existing-user": "¿Usuario existente?",
+    "reset-password-done": "Llévame a la página de inicio de sesión"
+  }
+}

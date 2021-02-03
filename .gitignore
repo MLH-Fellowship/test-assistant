@@ -106,6 +106,8 @@ ssl
 nbproject
 public/uploads/*
 !public/uploads/.gitkeep
+client/src/config.json
+client/.eslintcache
 
 ############################
 # Node.js

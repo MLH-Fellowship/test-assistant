@@ -1,0 +1,25 @@
+.status-wrapper {
+  max-height: 80px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.status-element {
+  z-index: 20;
+
+  .status {
+    align-items: center;
+
+    .tick {
+      background-color: $light-green;
+      font-size: $font-size-small;
+      padding: 8px 8px;
+    }
+
+    .no-tick {
+      background-color: $light-gray;
+      padding: 13px;
+    }
+  }
+}

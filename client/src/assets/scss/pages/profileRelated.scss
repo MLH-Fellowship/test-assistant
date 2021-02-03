@@ -1,0 +1,36 @@
+.profile-picture-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 16px 0px;
+}
+
+.my-stories .flex-row {
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  border-radius: 128px;
+  height: 256px;
+  width: 256px;
+}
+
+.basic-about {
+  margin: auto auto;
+  width: 384px;
+}
+
+.about-element {
+  margin: 8px 8px;
+
+  &-label {
+    font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-picture-container {
+    margin: 16px auto;
+  }
+}

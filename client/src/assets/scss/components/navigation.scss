@@ -1,0 +1,13 @@
+.nav-header {
+  align-items: center;
+  background-color: $nav-bg;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 32px 0;
+  width: 100%;
+
+  .logo {
+    height: 25px;
+  }
+}

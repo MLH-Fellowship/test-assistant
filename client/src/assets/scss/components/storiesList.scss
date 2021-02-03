@@ -1,0 +1,58 @@
+.story {
+  align-items: center;
+  background-color: $eos-white;
+  border-radius: 10px 10px 10px 0px;
+  box-shadow: 0px 2px 15px $shadow-color;
+  display: flex;
+  flex-direction: row;
+  height: 90px;
+  justify-content: space-around;
+  margin: 16px 0px;
+  padding: 20px;
+
+  .eos-icons {
+    margin-left: 16px;
+    margin-right: 16px;
+    pointer-events: none;
+    vertical-align: middle;
+  }
+
+  .mini-label {
+    color: $light-gray;
+    font-size: $font-size-small;
+  }
+
+  &-meta {
+    font-size: $font-size-small;
+    margin: 4px 0px 4px 0px;
+  }
+
+  &-author {
+    align-items: center;
+    display: flex;
+  }
+
+  &-subcontent {
+    margin: 0 16px;
+    min-width: 105px;
+  }
+
+  .category-text {
+    color: $hyper-link-color;
+    font-weight: bold;
+  }
+}
+
+.stories-content {
+  cursor: pointer;
+  flex-grow: 2;
+  margin: 0px 16px;
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .stories-content {
+    max-width: 60%;
+    width: 60%;
+  }
+}
