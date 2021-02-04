@@ -13,8 +13,6 @@ import Navigation from '../components/Navigation'
 
 const Home = () => {
 
-  const [currentStateSelected, selectState] = useState('Under consideration')
-
   const [stories, setStories] = useState([])
 
   const { promiseInProgress } = usePromiseTracker()
@@ -25,24 +23,12 @@ const Home = () => {
         `${apiURL}/graphql`,
         {
           query: `query {
-            userStories(sort: "createdAt:desc", limit: 5, start: ${
-              (1 - 1) * 5
-            }, where: {
-              user_story_status : {
-                Status: "${currentStateSelected}"
-              }
-            }) {
+            userStories {
               id
               Title
               Description
-              user_story_status {
-                Status
-              }
               user_story_comments {
                 Comments
-              }
-              product {
-                Name
               }
               author {
                 id
@@ -51,7 +37,8 @@ const Home = () => {
               followers {
                 id
               }
-              Category
+              github
+              testReport
             }
           }
           `
