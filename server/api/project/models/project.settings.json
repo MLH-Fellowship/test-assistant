@@ -1,30 +1,28 @@
 {
   "kind": "collectionType",
-  "connection": "default",
   "collectionName": "projects",
   "info": {
-    "name": "project"
+    "name": "Project"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text"
+    },
+    "github": {
+      "type": "string"
     },
     "user": {
       "plugin": "users-permissions",
       "model": "user",
       "via": "projects"
-    },
-    "public": {
-      "type": "boolean",
-      "required": true
     },
     "reports": {
       "via": "project",

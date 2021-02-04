@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news",
+  "info": {
+    "name": "New"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "cardColor": {
+      "type": "string"
+    },
+    "videourl": {
+      "type": "string"
+    },
+    "selectType": {
+      "type": "enumeration",
+      "enum": [
+        "video",
+        "article"
+      ]
+    }
+  }
+}

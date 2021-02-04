@@ -1,37 +1,38 @@
 {
-  "name": "server",
-  "private": true,
+  "name": "test-assistant-server",
+  "private": false,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "A Strapi application configured for Test Assistant",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "strapi": "3.0.0-beta.19.3",
-    "strapi-admin": "3.0.0-beta.19.3",
-    "strapi-connector-mongoose": "3.0.0-beta.19.3",
-    "strapi-plugin-content-manager": "3.0.0-beta.19.3",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.19.3",
-    "strapi-plugin-documentation": "3.0.0-beta.19.3",
-    "strapi-plugin-email": "3.0.0-beta.19.3",
-    "strapi-plugin-graphql": "3.0.0-beta.19.3",
-    "strapi-plugin-upload": "3.0.0-beta.19.3",
-    "strapi-plugin-users-permissions": "3.0.0-beta.19.3",
-    "strapi-utils": "3.0.0-beta.19.3"
+    "strapi": "3.0.1",
+    "strapi-admin": "3.0.1",
+    "strapi-connector-mongoose": "3.0.1",
+    "strapi-plugin-content-manager": "3.0.1",
+    "strapi-plugin-content-type-builder": "3.0.1",
+    "strapi-plugin-documentation": "^3.0.1",
+    "strapi-plugin-email": "3.0.1",
+    "strapi-plugin-graphql": "^3.0.1",
+    "strapi-plugin-upload": "3.0.1",
+    "strapi-plugin-users-permissions": "3.0.1",
+    "strapi-provider-email-sendgrid": "^3.0.2",
+    "strapi-provider-upload-cloudinary": "^3.0.4",
+    "strapi-utils": "3.0.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Test Assistant"
   },
   "strapi": {
-    "uuid": "4f6b32b1-6dd9-4ed9-a2b7-f1bb72b5cc53"
+    "uuid": "59f3a718-1a0c-40d7-a3f1-cbb1c160687b"
   },
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=10.15.0",
+    "npm": ">=6.9.0"
   },
   "license": "MIT"
 }

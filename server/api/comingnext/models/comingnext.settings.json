@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comingnext",
+  "info": {
+    "name": "Comingnext"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "string"
+    }
+  }
+}

@@ -1,6 +1,5 @@
 {
   "kind": "collectionType",
-  "connection": "default",
   "collectionName": "reports",
   "info": {
     "name": "Report"
@@ -10,12 +9,15 @@
     "timestamps": true
   },
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "project": {
       "model": "project",
       "via": "reports"
     },
-    "testReport": {
-      "type": "text"
+    "testResult": {
+      "type": "richtext"
     }
   }
 }

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designspecs",
+  "info": {
+    "name": "Designspecs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "xdSpecs": {
+      "type": "string"
+    },
+    "xdBackup": {
+      "type": "string"
+    },
+    "trello": {
+      "type": "string"
+    },
+    "documentDescription": {
+      "type": "text"
+    },
+    "date": {
+      "type": "datetime"
+    }
+  }
+}

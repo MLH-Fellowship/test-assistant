@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "successes",
+  "info": {
+    "name": "Successes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image_thumb": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "image_1": {
+      "type": "string"
+    },
+    "image_2": {
+      "type": "string"
+    },
+    "image_3": {
+      "type": "string"
+    },
+    "image_4": {
+      "type": "string"
+    },
+    "project_link": {
+      "type": "string"
+    }
+  }
+}

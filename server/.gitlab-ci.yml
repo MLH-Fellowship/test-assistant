@@ -1,0 +1,33 @@
+stages:
+  - deploy
+
+image: node:10.15.0
+
+deploy_production:
+  stage: deploy
+  image: ruby:latest
+  environment:
+    name: production
+    url: https://$HEROKU_SERVER_PROD.herokuapp.com/
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_SERVER_PROD --api-key=$HEROKU_API
+  when: manual
+  only:
+    - master
+
+deploy_development:
+  stage: deploy
+  image: ruby:latest
+  environment:
+    name: development
+    url: https://$HEROKU_SERVER_DEV.herokuapp.com/
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_SERVER_DEV --api-key=$HEROKU_API
+  only:
+    - master

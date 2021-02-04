@@ -517,17 +517,19 @@
       "Project": {
         "required": [
           "id",
-          "Title",
-          "public"
+          "title"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Title": {
+          "title": {
             "type": "string"
           },
-          "Description": {
+          "description": {
+            "type": "string"
+          },
+          "github": {
             "type": "string"
           },
           "user": {
@@ -564,6 +566,45 @@
               "role": {
                 "type": "string"
               },
+              "profilePicture": {
+                "type": "string"
+              },
+              "Bio": {
+                "type": "string"
+              },
+              "LinkedIn": {
+                "type": "string"
+              },
+              "Twitter": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "Profession": {
+                "type": "string"
+              },
+              "Company": {
+                "type": "string"
+              },
+              "user_story_comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user_stories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user_story_comment_replies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "projects": {
                 "type": "array",
                 "items": {
@@ -571,9 +612,6 @@
                 }
               }
             }
-          },
-          "public": {
-            "type": "boolean"
           },
           "reports": {
             "type": "array",
@@ -585,10 +623,13 @@
                 "id": {
                   "type": "string"
                 },
+                "title": {
+                  "type": "string"
+                },
                 "project": {
                   "type": "string"
                 },
-                "testReport": {
+                "testResult": {
                   "type": "string"
                 }
               }
@@ -598,21 +639,20 @@
       },
       "NewProject": {
         "required": [
-          "Title",
-          "public"
+          "title"
         ],
         "properties": {
-          "Title": {
+          "title": {
             "type": "string"
           },
-          "Description": {
+          "description": {
+            "type": "string"
+          },
+          "github": {
             "type": "string"
           },
           "user": {
             "type": "string"
-          },
-          "public": {
-            "type": "boolean"
           },
           "reports": {
             "type": "array",

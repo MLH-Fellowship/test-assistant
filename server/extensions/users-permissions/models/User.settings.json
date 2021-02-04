@@ -1,6 +1,5 @@
 {
   "kind": "collectionType",
-  "connection": "default",
   "collectionName": "users-permissions_user",
   "info": {
     "name": "user",
@@ -53,6 +52,46 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "profilePicture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Bio": {
+      "type": "text"
+    },
+    "LinkedIn": {
+      "type": "string"
+    },
+    "Twitter": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string",
+      "required": false
+    },
+    "Profession": {
+      "type": "string"
+    },
+    "Company": {
+      "type": "string"
+    },
+    "user_story_comments": {
+      "via": "user",
+      "collection": "user-story-comment"
+    },
+    "user_stories": {
+      "via": "author",
+      "collection": "user-story"
+    },
+    "user_story_comment_replies": {
+      "via": "user",
+      "collection": "user-story-comment-thread"
     },
     "projects": {
       "via": "user",

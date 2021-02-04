@@ -522,27 +522,29 @@
           "id": {
             "type": "string"
           },
+          "title": {
+            "type": "string"
+          },
           "project": {
             "required": [
               "id",
-              "Title",
-              "public"
+              "title"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Title": {
+              "title": {
                 "type": "string"
               },
-              "Description": {
+              "description": {
+                "type": "string"
+              },
+              "github": {
                 "type": "string"
               },
               "user": {
                 "type": "string"
-              },
-              "public": {
-                "type": "boolean"
               },
               "reports": {
                 "type": "array",
@@ -552,17 +554,20 @@
               }
             }
           },
-          "testReport": {
+          "testResult": {
             "type": "string"
           }
         }
       },
       "NewReport": {
         "properties": {
+          "title": {
+            "type": "string"
+          },
           "project": {
             "type": "string"
           },
-          "testReport": {
+          "testResult": {
             "type": "string"
           }
         }

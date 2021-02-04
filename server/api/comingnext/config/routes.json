@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/comingnexts",
+      "handler": "comingnext.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/comingnexts/count",
+      "handler": "comingnext.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/comingnexts/:id",
+      "handler": "comingnext.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/comingnexts",
+      "handler": "comingnext.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/comingnexts/:id",
+      "handler": "comingnext.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/comingnexts/:id",
+      "handler": "comingnext.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

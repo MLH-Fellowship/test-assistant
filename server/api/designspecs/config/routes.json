@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/designspecs",
+      "handler": "designspecs.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designspecs/count",
+      "handler": "designspecs.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designspecs/:id",
+      "handler": "designspecs.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/designspecs",
+      "handler": "designspecs.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/designspecs/:id",
+      "handler": "designspecs.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/designspecs/:id",
+      "handler": "designspecs.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

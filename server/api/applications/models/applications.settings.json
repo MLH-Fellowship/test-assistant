@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "application",
+  "info": {
+    "name": "Application"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "brand": {
+      "type": "string"
+    },
+    "showChangelog": {
+      "type": "boolean"
+    },
+    "enableFeedback": {
+      "type": "boolean"
+    },
+    "enableGTM": {
+      "type": "boolean"
+    },
+    "modalAnnoucement": {
+      "type": "json"
+    },
+    "requiresAuth": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
