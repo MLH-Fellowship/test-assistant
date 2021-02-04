@@ -49,6 +49,7 @@ const Story = (props) => {
               followers {
                 id
               }
+              testReport
             }
           }`
         },
@@ -203,6 +204,10 @@ const Story = (props) => {
                   ''
                 )}
               </div>
+              <div
+              dangerouslySetInnerHTML={{
+                    __html: story.testReport
+              }}></div>
               <Comments storyId={storyId} />
             </div>
           </div>

@@ -1401,6 +1401,9 @@
                 },
                 "github": {
                   "type": "string"
+                },
+                "testReport": {
+                  "type": "string"
                 }
               }
             }

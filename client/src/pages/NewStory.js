@@ -13,7 +13,6 @@ import Navigation from '../components/Navigation'
 import LoadingIndicator from '../modules/LoadingIndicator'
 import Button from '../components/Button'
 import Search from '../modules/TitleSearch'
-import Dragdrop from '../components/Dragdrop'
 import { navigate } from '@reach/router'
 import Context from '../modules/Context'
 import Login from './Login'
@@ -194,6 +193,17 @@ const NewStory = () => {
                   />
                   {errors.title && <FormError type={errors.title.type} />}
                 </div>
+                <div className='form-element'>
+                  <label htmlFor='code'>Source Code Link</label>
+                  <input
+                    className='input-default'
+                    type='text'
+                    name='code'
+                    autoComplete='off'
+                    ref={register({ required: true })}
+                  />
+                  {errors.title && <FormError type={errors.code.type} />}
+                </div>
                 {screenSize <= 1120 ? (
                   <Search
                     listToBeSearched={storiesData}
@@ -202,69 +212,8 @@ const NewStory = () => {
                 ) : (
                   ''
                 )}
-                <div className='form-element'>
-                  <label htmlFor='product'>Product</label>
-                  <select
-                    className='select-default'
-                    name='product'
-                    ref={register({ required: true })}
-                  >
-                    <option defaultValue={true} value=''>
-                      Select a product
-                    </option>
-                    {products &&
-                      products.map((ele, key) => {
-                        return (
-                          <option key={key} value={ele.id}>
-                            {ele.Name}
-                          </option>
-                        )
-                      })}
-                  </select>
-                  {errors.product && <FormError type={errors.product.type} />}
-                </div>
-                <div className='form-element'>
-                  <label htmlFor='category'>Category</label>
-                  <select
-                    className='select-default'
-                    name='category'
-                    ref={register({ required: true })}
-                  >
-                    <option defaultValue={true} value=''>
-                      Select a category
-                    </option>
-                    {categories &&
-                      categories.map((ele, key) => {
-                        return (
-                          <option key={key} value={ele}>
-                            {ele}
-                          </option>
-                        )
-                      })}
-                  </select>
-                  {errors.category && <FormError type={errors.category.type} />}
-                </div>
-                <div className='form-element'>
-                  <label htmlFor='priority'>Priority</label>
-                  <select
-                    className='select-default'
-                    name='priority'
-                    ref={register({ required: true })}
-                  >
-                    <option defaultValue={true} value=''>
-                      Select priority
-                    </option>
-                    {priorities &&
-                      priorities.map((ele, key) => {
-                        return (
-                          <option key={key} value={ele}>
-                            {ele}
-                          </option>
-                        )
-                      })}
-                  </select>
-                  {errors.priority && <FormError type={errors.priority.type} />}
-                </div>
+                
+          
                 <div className='form-element'>
                   <label htmlFor='description'>Description</label>
                   <CKEditor
@@ -289,7 +238,6 @@ const NewStory = () => {
                   />
                   {descriptionError && <FormError type='emptyDescription' />}
                 </div>
-                <Dragdrop />
                 <div className='flex flex-row flex-center'>
                   <Button type='submit' className='btn btn-default'>
                     Submit

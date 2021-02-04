@@ -74,6 +74,9 @@
     },
     "github": {
       "type": "string"
+    },
+    "testReport": {
+      "type": "richtext"
     }
   }
 }

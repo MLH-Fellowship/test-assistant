@@ -17,8 +17,6 @@ const Home = () => {
 
   const [stories, setStories] = useState([])
 
-  const [product, setProduct] = useState('All')
-
   const { promiseInProgress } = usePromiseTracker()
 
   useEffect(() => {
@@ -73,7 +71,7 @@ const Home = () => {
         <title>Home | Test Assistant</title>
         <meta
           name='description'
-          content="Share with us how you test your products, relate to other users'
+          content="Share with us how you test your projects, relate to other users'
           tests, vote them up, and we'll make sure we deliver cohesive
           solutions that enhance your learning and testing experience."
         />
@@ -89,7 +87,7 @@ const Home = () => {
             <div>
               <h1>GET STARTED WITH YOUR TESTING JOURNEY</h1>
               <h2 className='subheader'>
-                Share with us how you test your products, relate to other users'
+                Share with us how you test your projects, relate to other users'
                 tests, vote them up, and we'll make sure we deliver cohesive
                 solutions that enhance your learning and testing experience.
               </h2>
@@ -108,8 +106,6 @@ const Home = () => {
             <>
               <StoriesList
                 stories={stories}
-                state={currentStateSelected}
-                product={product}
               />
             </>
           )}
