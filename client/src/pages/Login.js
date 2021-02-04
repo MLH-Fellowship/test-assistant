@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Link, navigate } from '@reach/router'
+import { useTranslation } from 'react-i18next'
 import useAuth from '../hooks/useAuth'
 import { Helmet } from 'react-helmet'
 
@@ -15,6 +16,8 @@ import AuthWrapper, {
 
 export const Login = (props) => {
   const { message } = props
+
+  const { t } = useTranslation()
 
   const { login } = useAuth()
 
@@ -51,12 +54,12 @@ export const Login = (props) => {
         <AuthRightContainer>
           <div>
             <form className='form-default' onSubmit={handleSubmit(onSubmit)}>
-              <div className='header'>Sign in</div>
+              <div className='header'>{t('authentication:title-sign-in')}</div>
               {message && <FormError message={message} />}
               {state.errorCode && <FormError status={state.errorCode} />}
               <div className='form-element'>
                 <label htmlFor='identifer'>
-                Enter your username
+                  {t('authentication:username-label')}
                 </label>
                 <input
                   className='input-default'
@@ -71,7 +74,7 @@ export const Login = (props) => {
 
               <div className='form-element'>
                 <label htmlFor='password'>
-                Enter your password
+                  {t('authentication:password-label')}
                 </label>
                 <div className='input-group'>
                   <input
@@ -94,15 +97,15 @@ export const Login = (props) => {
               </div>
 
               <Button type='submit' className='btn btn-default'>
-                Login
+                {t('authentication:login-label')}
               </Button>
             </form>
             <div className='flex flex-row flex-space-between margin-top-l'>
               <Link className='link link-default' to='/forgotPassword'>
-              Forgot password?
+                {t('authentication:forgot-password')}
               </Link>
               <Link className='link link-default' to='/register'>
-              Create an account
+                {t('authentication:create-account')}
               </Link>
             </div>
           </div>

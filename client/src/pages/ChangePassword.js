@@ -3,19 +3,18 @@ import { useForm } from 'react-hook-form'
 
 import { Link, useLocation } from '@reach/router'
 import { useTranslation } from 'react-i18next'
-
 import { Helmet } from 'react-helmet'
 
 import Button from '../components/Button'
-import FormError from '../components/FormError'
 import useAuth from '../hooks/useAuth'
+import FormError from '../components/FormError'
 import Context from '../modules/Context'
 import AuthWrapper, {
   AuthLeftContainer,
   AuthRightContainer
 } from '../components/AuthWrapper'
 
-const ResetPassword = () => {
+const ChangePassword = () => {
   const { t } = useTranslation()
 
   const { state } = useContext(Context)
@@ -42,7 +41,7 @@ const ResetPassword = () => {
   return (
     <>
       <Helmet>
-        <title>Reset your password | EOS User story</title>
+        <title>Change your password | EOS User story</title>
         <meta name='robots' content='noindex' />
       </Helmet>
       <AuthWrapper>
@@ -73,6 +72,20 @@ const ResetPassword = () => {
                   </div>
                   <div className='form-element'>
                     <label htmlFor='password'>
+                      {t('authentication:old-password')}
+                    </label>
+                    <input
+                      className='input-default'
+                      type='password'
+                      name='oldPassword'
+                      ref={register({ required: true })}
+                    />
+                    {errors.oldPassword && (
+                      <FormError type={errors.oldPassword.type} />
+                    )}
+                  </div>
+                  <div className='form-element'>
+                    <label htmlFor='password'>
                       {t('authentication:new-password')}
                     </label>
                     <input
@@ -81,7 +94,6 @@ const ResetPassword = () => {
                       name='password'
                       ref={register({ required: true })}
                     />
-
                     {errors.password && (
                       <FormError type={errors.password.type} />
                     )}
@@ -113,4 +125,4 @@ const ResetPassword = () => {
   )
 }
 
-export default ResetPassword
+export default ChangePassword

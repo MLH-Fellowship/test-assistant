@@ -1,6 +1,7 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import LanguageDropdown from './LanguageDropdown'
 import eosLogoColoured from '../assets/images/logo-coloured.png'
-
 export const AuthWrapper = ({ children }) => {
   return (
     <div className='authentication-wrapper'>
@@ -10,17 +11,18 @@ export const AuthWrapper = ({ children }) => {
 }
 
 export const AuthLeftContainer = () => {
+  const { t } = useTranslation()
 
   return (
     <div className='container-left'>
       <div className='container-left-content'>
         <div className='header header-uppercase'>
-        Test Assistant
+          {t('authentication:header-left')}
         </div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        <p>{t('authentication:user-stories-description')}</p>
         <div className='footer'>
           <p>
-          This site saves some information in cookies but only when strictly necessary
+            {t('authentication:footer-left')} -{' '}
             <a className='link link-default' href='/policies'>
               Learn More
             </a>
@@ -32,6 +34,7 @@ export const AuthLeftContainer = () => {
 }
 
 export const AuthRightContainer = ({ children, logo }) => {
+  const { t, i18n } = useTranslation()
 
   return (
     <div className='container-right'>
@@ -39,12 +42,13 @@ export const AuthRightContainer = ({ children, logo }) => {
         <div className='image image-logo eos-logo-resize'>
           <img src={logo ?? eosLogoColoured} alt='EOS Logo' />
         </div>
+        <LanguageDropdown translator={i18n} />
       </div>
       {children}
       <div className='footer'>
         <span>
           <i className='eos-icons'>copyright</i>
-          <span> 2021 Test Assistant </span>
+          <span> {t('authentication:footer-right')} </span>
         </span>
         <a className='link link-default' href='/policies'>
           {' '}
@@ -54,7 +58,7 @@ export const AuthRightContainer = ({ children, logo }) => {
 
       <div className='cookies-mobile'>
         <p>
-        This site saves some information in cookies but only when strictly necessary
+          {t('authentication:footer-left')} -{' '}
           <a className='link link-default' href='/policies'>
             Learn More
           </a>

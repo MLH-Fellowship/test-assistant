@@ -8,6 +8,7 @@ import useAuth from '../hooks/useAuth'
 import Context from '../modules/Context'
 
 import FormError from '../components/FormError'
+import { useTranslation } from 'react-i18next'
 import AuthWrapper, {
   AuthLeftContainer,
   AuthRightContainer
@@ -19,6 +20,8 @@ export const Register = () => {
   const { state, dispatch } = useContext(Context)
 
   const { register, handleSubmit, errors } = useForm()
+
+  const { t } = useTranslation()
 
   const onSubmit = async (data) => {
     try {
@@ -49,11 +52,11 @@ export const Register = () => {
         <AuthRightContainer>
           <div>
             <form className='form-default' onSubmit={handleSubmit(onSubmit)}>
-              <div className='header'>Sign up</div>
+              <div className='header'>{t('authentication:title-sign-up')}</div>
               {state.errorCode && <FormError status={state.errorCode} />}
               <div className='form-element'>
                 <label htmlFor='username'>
-                Enter your username
+                  {t('authentication:username-label')}
                 </label>
                 <input
                   className='input-default'
@@ -64,7 +67,7 @@ export const Register = () => {
                 {errors.username && <FormError type={errors.username.type} />}
               </div>
               <div className='form-element'>
-                <label htmlFor='email'>Enter your email</label>
+                <label htmlFor='email'>{t('authentication:email-label')}</label>
                 <input
                   className='input-default'
                   type='text'
@@ -75,7 +78,7 @@ export const Register = () => {
               </div>
               <div className='form-element'>
                 <label htmlFor='password'>
-                Enter your password
+                  {t('authentication:password-label')}
                 </label>
                 <input
                   className='input-default'
@@ -112,12 +115,12 @@ export const Register = () => {
                 </div>
               </div>
               <Button type='submit' className='btn btn-default'>
-                Register
+                {t('authentication:register-label')}
               </Button>
             </form>
             <div className='flex flex-row flex-space-between margin-top-l'>
               <Link className='link link-default' to='/login'>
-              Existing user?
+                {t('authentication:existing-user')}
               </Link>
             </div>
           </div>
