@@ -865,6 +865,9 @@
               "High",
               "Critical"
             ]
+          },
+          "github": {
+            "type": "string"
           }
         }
       },
@@ -916,6 +919,9 @@
               "High",
               "Critical"
             ]
+          },
+          "github": {
+            "type": "string"
           }
         }
       }

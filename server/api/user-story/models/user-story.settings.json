@@ -71,6 +71,9 @@
         "Critical"
       ],
       "required": false
+    },
+    "github": {
+      "type": "string"
     }
   }
 }

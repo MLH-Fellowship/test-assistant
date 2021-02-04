@@ -582,6 +582,9 @@
               },
               "Priority": {
                 "type": "string"
+              },
+              "github": {
+                "type": "string"
               }
             }
           },
