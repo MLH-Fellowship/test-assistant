@@ -38,7 +38,7 @@
 
 - It provides the user interface to manage the project requests received by Test Assistant, and also to manage the table of content and general project configuration.
 
-## How to install it
+### How to install it
 
 - Like always, clone this repo. Once cloned and inside the repository's folder install all the dependencies with `npm i`.
 
