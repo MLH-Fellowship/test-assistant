@@ -5,7 +5,7 @@ import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import axios from 'axios'
 import { apiURL } from '../config.json'
-import { trackPromise, usePromiseTracker } from 'react-promise-tracker'
+import { usePromiseTracker } from 'react-promise-tracker'
 import { Helmet } from 'react-helmet'
 
 import FormError from '../components/FormError'
@@ -24,13 +24,9 @@ const NewStory = () => {
 
   const [descriptionError, setDescriptionError] = useState(false)
 
-  const [categories, setCategories] = useState([])
-
-  const [priorities, setPriorities] = useState([])
-
-  const [products, setProducts] = useState([])
-
   const [storiesData, setStoriesData] = useState([])
+
+  const [testReport, setTestReport] = useState(null)
 
   const { promiseInProgress } = usePromiseTracker()
 
@@ -46,60 +42,6 @@ const NewStory = () => {
   }, [])
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await axios.post(`${apiURL}/graphql`, {
-        query: '{ __type(name: "ENUM_USERSTORY_CATEGORY") {enumValues {name}}}'
-      })
-
-      setCategories(
-        response.data.data.__type.enumValues.map((ele) => {
-          return ele.name
-        })
-      )
-    }
-
-    trackPromise(fetchCategories())
-
-    const fetchProducts = async () => {
-      const response = await axios.post(
-        `${apiURL}/graphql`,
-        {
-          query: `query {
-          products {
-            id
-            Name
-          }
-        }`
-        },
-        {
-          withCredentials: true
-        }
-      )
-      setProducts(response.data.data.products)
-    }
-
-    trackPromise(fetchProducts())
-
-    const fetchPriorities = async () => {
-      const response = await axios.post(`${apiURL}/graphql`, {
-        query: `query {
-          __type(name: "ENUM_USERSTORY_PRIORITY") {
-            enumValues {
-              name
-            }
-          }
-        }`
-      })
-
-      setPriorities(
-        response.data.data.__type.enumValues.map((ele) => {
-          return ele.name
-        })
-      )
-    }
-
-    trackPromise(fetchPriorities())
-
     const fetchStoriesData = async () => {
       const response = await axios.post(
         `${apiURL}/graphql`,
@@ -131,7 +73,8 @@ const NewStory = () => {
     let file = e.target.files[0];
 
     reader.onloadend= () => {
-      console.log("reader result: ", reader.result);
+      setTestReport(reader.result);
+      console.log(typeof reader.result)
     }
 
     reader.readAsText(file);
@@ -150,12 +93,10 @@ const NewStory = () => {
           createUserStory(
             input: {
               data: {
-                Description: "${data.description}"
                 Title: "${data.title}"
-                Category: ${data.category}
-                user_story_status: "5f0f33205f5695666b0d2e7e"
-                product: "${data.product}"
-                Priority: ${data.priority}
+                Description: "${data.description}"
+                github: "${data.code}"
+                testReport: ${JSON.stringify(testReport)}
               }
             }
           ) {
