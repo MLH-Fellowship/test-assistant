@@ -1357,9 +1357,7 @@
             "items": {
               "required": [
                 "id",
-                "Category",
-                "Description",
-                "Priority"
+                "Description"
               ],
               "properties": {
                 "id": {

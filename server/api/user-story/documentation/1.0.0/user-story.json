@@ -530,9 +530,7 @@
       "User-story": {
         "required": [
           "id",
-          "Category",
-          "Description",
-          "Priority"
+          "Description"
         ],
         "properties": {
           "id": {
@@ -872,9 +870,7 @@
       },
       "NewUser-story": {
         "required": [
-          "Category",
-          "Description",
-          "Priority"
+          "Description"
         ],
         "properties": {
           "Category": {
