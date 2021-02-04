@@ -124,12 +124,19 @@ const NewStory = () => {
     fetchStoriesData()
   }, [])
 
-  /*
-  const handleFileUpload = (event) => {
-    setData({ ...data, mediaCollection: event.target.files })
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend= () => {
+      console.log("reader result: ", reader.result);
+    }
+
+    reader.readAsText(file);
+
   }
-  feature coming in next PR
-  */
 
   const onSubmit = async (data) => {
     if (data.description === undefined || data.description.length === 0) {
@@ -212,8 +219,8 @@ const NewStory = () => {
                 ) : (
                   ''
                 )}
-                
-          
+
+
                 <div className='form-element'>
                   <label htmlFor='description'>Description</label>
                   <CKEditor
@@ -238,6 +245,12 @@ const NewStory = () => {
                   />
                   {descriptionError && <FormError type='emptyDescription' />}
                 </div>
+
+                <div className="form-element">
+                  <label>Test Report</label>
+                  <input type={"file"} className={"input-default"} onChange={handleFileUpload}/>
+                </div>
+
                 <div className='flex flex-row flex-center'>
                   <Button type='submit' className='btn btn-default'>
                     Submit
