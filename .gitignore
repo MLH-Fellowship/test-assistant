@@ -107,7 +107,7 @@ nbproject
 public/uploads/*
 !public/uploads/.gitkeep
 client/src/config.json
-client/.eslintcache
+server/.env
 
 ############################
 # Node.js
