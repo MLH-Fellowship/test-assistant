@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link, navigate } from '@reach/router'
 
-import eosIcon from '../assets/images/user-story-logo.svg'
+import eosIcon from '../assets/images/logo.png'
 import useAuth from '../hooks/useAuth'
 import Context from '../modules/Context'
 
