@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./client/src/assets/images/logo.png">
+</p>
+
 ## Introduction
 
 - Test Assistant guides you to set up tests for your React application and then helps you to generate a summary using a test results processor. You can then create a new project on the platform and share the test report which will be rendered on your web application dashboard.
