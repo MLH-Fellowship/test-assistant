@@ -2,8 +2,6 @@
   <img src="./client/src/assets/images/logo.png">
 </p>
 
-<iframe src="https://player.vimeo.com/video/509573310" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
 ## Introduction
 
 - Test Assistant guides you to set up tests for your React application and then helps you to generate a summary using a test results processor. You can then create a new project on the platform and share the test report which will be rendered on your web application dashboard.
