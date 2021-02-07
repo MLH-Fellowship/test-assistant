@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../config.json'
 import { trackPromise, usePromiseTracker } from 'react-promise-tracker'
@@ -7,71 +7,14 @@ import { Helmet } from 'react-helmet'
 import LoadingIndicator from '../modules/LoadingIndicator'
 import StoriesList from '../components/StoriesList'
 import Navigation from '../components/Navigation'
-import Button from '../components/Button'
-import Dropdown from '../components/Dropdown'
 import UserProfile from '../components/UserProfile'
-import Lists from '../utils/Lists'
 
 const Profile = (props) => {
   const { profileId } = props
   const [stories, setStories] = useState([])
   const [user, setUser] = useState('')
 
-  const [currentStateSelected, selectState] = useState('Under consideration')
-
   const { promiseInProgress } = usePromiseTracker()
-
-  const productDropdownContainer = useRef()
-  const sortDropdownContainer = useRef()
-  const categoryDropdownContainer = useRef()
-
-  const [product, setProduct] = useState('All')
-  const [sort, setSort] = useState('Most Voted')
-  const [category, setCategory] = useState('All')
-
-  const [products, setProducts] = useState([])
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await axios.post(
-        `${apiURL}/graphql`,
-        {
-          query: `query {
-          products {
-            Name
-          }
-        }`
-        },
-        {
-          withCredentials: true
-        }
-      )
-      setProducts(
-        response.data.data.products.map((ele) => {
-          return ele.Name
-        })
-      )
-      setProducts((products) => ['All', ...products])
-    }
-    fetchProducts()
-  }, [])
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await axios.post(`${apiURL}/graphql`, {
-        query: '{ __type(name: "ENUM_USERSTORY_CATEGORY") {enumValues {name}}}'
-      })
-
-      setCategories(
-        response.data.data.__type.enumValues.map((ele) => {
-          return ele.name
-        })
-      )
-      setCategories((categories) => ['All', ...categories])
-    }
-    trackPromise(fetchCategories())
-  }, [])
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -147,31 +90,10 @@ const Profile = (props) => {
     trackPromise(fetchMyStories())
   }, [profileId])
 
-  useEffect(() => {
-    const comparatorVotes = (a, b) => {
-      return a.followers.length > b.followers.length ? -1 : 1
-    }
-    const comparatorComments = (a, b) => {
-      return a.user_story_comments.length > b.user_story_comments.length
-        ? -1
-        : 1
-    }
-
-    const updateStories = async () => {
-      if (sort === 'Most Voted') {
-        setStories(stories.sort(comparatorVotes))
-      }
-      if (sort === 'Most Discussed') {
-        setStories(stories.sort(comparatorComments))
-      }
-    }
-    trackPromise(updateStories())
-  }, [sort, stories, setStories])
-
   return (
     <>
       <Helmet>
-        <title>{`${user.username} | EOS User story`}</title>
+        <title>{`${user.username} | Test Assistant`}</title>
         <meta name='description' content={`${user.Bio}`} />
         <meta name='keywords' content='user story, issue tracker' />
       </Helmet>
@@ -188,53 +110,9 @@ const Profile = (props) => {
             </div>
             {
               <div className='flex flex-column'>
-                <h3>Stories by this user</h3>
-                <div className='flex flex-row options-bar'>
-                  <Dropdown
-                    title='Product'
-                    reference={productDropdownContainer}
-                    curr={product}
-                    setCurr={setProduct}
-                    itemList={products}
-                  />
-                  <Dropdown
-                    title='Categories'
-                    reference={categoryDropdownContainer}
-                    curr={category}
-                    setCurr={setCategory}
-                    itemList={categories}
-                  />
-                  <Dropdown
-                    title='Sort By'
-                    reference={sortDropdownContainer}
-                    curr={sort}
-                    setCurr={setSort}
-                    itemList={Lists.sortByList}
-                  />
-                </div>
-                <div className='flex flex-row flex-space-between'>
-                  {Lists.stateList &&
-                    Lists.stateList.map((state, key) => {
-                      return (
-                        <Button
-                          className={
-                            currentStateSelected === state.status
-                              ? 'btn btn-tabs btn-tabs-selected'
-                              : 'btn btn-tabs'
-                          }
-                          key={key}
-                          onClick={() => selectState(state.status)}
-                        >
-                          <i className='eos-icons'>{state.icon}</i>
-                          {state.status}
-                        </Button>
-                      )
-                    })}
-                </div>
+                <h3>Projects by this user</h3>
                 <StoriesList
                   stories={stories}
-                  state={currentStateSelected}
-                  product={product}
                 />
               </div>
             }
